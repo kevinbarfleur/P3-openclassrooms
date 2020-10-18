@@ -1,0 +1,94 @@
+* {
+  font-family: "Poppins", sans-serif;
+  color: #212121;
+  font-size: 1em;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+}
+.container .home {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+.container .home .left {
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+}
+.container .home .left .titles {
+  margin-top: 5%;
+  text-align: left;
+}
+.container .home .left .titles h1 {
+  font-size: 4em;
+  margin-bottom: -5px;
+}
+.container .home .left .titles h4 {
+  font-size: 1em;
+  font-weight: 400;
+  color: lightslategrey;
+}
+.container .home .left .home-buttons {
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  justify-content: start;
+  align-items: flex-start;
+}
+.container .home .left .home-buttons button {
+  outline: none;
+  margin-right: 5%;
+  margin-top: 5%;
+  padding: 10px 30px;
+  border: none;
+  background-color: #eeeeee;
+  border-radius: 6px;
+  box-shadow: 2px 4px 15px lightgray;
+  transition: all 0.4s;
+}
+.container .home .left .home-buttons button.about-button {
+  white-space: nowrap;
+  color: #424242;
+}
+.container .home .left .home-buttons button.reserve-button {
+  white-space: nowrap;
+  background-color: #9ccc65;
+  color: white;
+}
+.container .home .left .home-buttons button:hover {
+  cursor: pointer;
+  box-shadow: 2px 4px 5px lightgray;
+  transform: translateY(2px);
+  transition: all 0.4s;
+}
+.container .home .right {
+  width: 50%;
+  height: 100%;
+}
+.container .home .right .home-images {
+  margin: 4%;
+  height: 100%;
+}
+.container .home .right .home-images img {
+  height: 100%;
+}
+.container .home .home-intro {
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  justify-content: space-around;
+}
+.container .home .home-intro p {
+  margin: 20px;
+}
+
+/*# sourceMappingURL=/style.97fcb138.css.map */

@@ -8,5 +8,11 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.27.0"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  }
 }

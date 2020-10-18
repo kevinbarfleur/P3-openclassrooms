@@ -1,0 +1,112 @@
+* {
+  font-family: "Poppins", sans-serif;
+  color: #212121;
+  font-size: 1em;
+}
+
+body {
+  //overflow: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+
+  .home {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+
+    .left {
+      width: 50%;
+      align-items: center;
+      justify-content: center;
+
+      .titles {
+        margin-top: 5%;
+        text-align: left;
+
+        h1 {
+          //font-family: "Playfair Display", serif;
+          font-size: 4em;
+          margin-bottom: -5px;
+        }
+
+        h4 {
+          font-size: 1em;
+          font-weight: 400;
+          color: lightslategrey;
+        }
+      }
+
+      .home-buttons {
+        display: flex;
+        flex-direction: row;
+        width: 70%;
+        justify-content: start;
+        align-items: flex-start;
+
+        button {
+          outline: none;
+          margin-right: 5%;
+          margin-top: 5%;
+          padding: 10px 30px;
+          border: none;
+          background-color: #eeeeee;
+          border-radius: 6px;
+          box-shadow: 2px 4px 15px lightgray;
+          transition: all 0.4s;
+
+          &.about-button {
+            white-space: nowrap;
+            color: #424242;
+          }
+
+          &.reserve-button {
+            white-space: nowrap;
+            background-color: #9ccc65;
+            color: white;
+          }
+
+          &:hover {
+            cursor: pointer;
+            box-shadow: 2px 4px 5px lightgray;
+            transform: translateY(2px);
+            transition: all 0.4s;
+          }
+        }
+      }
+    }
+
+    .right {
+      width: 50%;
+      height: 100%;
+
+      .home-images {
+        margin: 4%;
+        height: 100%;
+
+        img {
+          height: 100%;
+        }
+      }
+    }
+
+    .home-intro {
+      display: flex;
+      flex-direction: row;
+      width: 70%;
+      justify-content: space-around;
+
+      p {
+        margin: 20px;
+      }
+    }
+  }
+}
