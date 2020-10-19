@@ -194,6 +194,21 @@ module.exports = reloadCSS;
 "use strict";
 
 require("normalize.css");
+
+var imgContent = document.querySelectorAll(".img-content-hover");
+
+var showImgContent = function showImgContent(event) {
+  var x;
+  var y;
+
+  for (var i = 0; i < imgContent.length; i++) {
+    x = event.pageX;
+    y = event.pageY;
+    imgContent[i].style.transform = "translate3d(".concat(x, "px, ").concat(y, "px, 0)");
+  }
+};
+
+document.addEventListener("mousemove", showImgContent);
 },{"normalize.css":"node_modules/normalize.css/normalize.css"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -222,7 +237,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56180" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57049" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

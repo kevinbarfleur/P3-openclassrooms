@@ -1,3 +1,7 @@
+$white: #fff;
+$black: #2e2e2e;
+$gray: #787878;
+
 * {
   font-family: "Poppins", sans-serif;
   color: #212121;
@@ -18,13 +22,13 @@ body {
   .home {
     display: flex;
     flex-direction: row;
-    width: 80%;
+    width: 90%;
     height: 100vh;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 
     .left {
-      width: 50%;
+      width: 45%;
       align-items: center;
       justify-content: center;
 
@@ -43,58 +47,142 @@ body {
           font-weight: 400;
           color: lightslategrey;
         }
+
+        p {
+          font-size: 1em;
+          font-weight: 400;
+          color: lightslategrey;
+        }
       }
 
       .home-buttons {
         display: flex;
         flex-direction: row;
-        width: 70%;
-        justify-content: start;
-        align-items: flex-start;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
 
-        button {
-          outline: none;
-          margin-right: 5%;
-          margin-top: 5%;
-          padding: 10px 30px;
-          border: none;
-          background-color: #eeeeee;
-          border-radius: 6px;
-          box-shadow: 2px 4px 15px lightgray;
-          transition: all 0.4s;
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
 
-          &.about-button {
-            white-space: nowrap;
-            color: #424242;
+        .about-button {
+          margin-top: 40px;
+          margin-right: 40px;
+          font-weight: 400;
+          color: rgba(255, 171, 157);
+          text-decoration: underline;
+        }
+
+        .reserve-button {
+          position: relative;
+          margin-top: 40px;
+          padding: 19px 22px;
+          transition: all 0.2s ease;
+
+          &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            border-radius: 28px;
+            background: rgba(255, 171, 157, 0.5);
+            width: 56px;
+            height: 56px;
+            transition: all 0.3s ease;
           }
-
-          &.reserve-button {
-            white-space: nowrap;
-            background-color: #9ccc65;
-            color: white;
+          & span {
+            position: relative;
+            font-size: 16px;
+            line-height: 18px;
+            font-weight: 900;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            vertical-align: middle;
           }
-
-          &:hover {
-            cursor: pointer;
-            box-shadow: 2px 4px 5px lightgray;
-            transform: translateY(2px);
-            transition: all 0.4s;
+          & svg {
+            position: relative;
+            top: 0;
+            margin-left: 10px;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke: #111;
+            stroke-width: 2;
+            transform: translateX(-5px);
+            transition: all 0.3s ease;
+          }
+          &:hover:before {
+            width: 100%;
+            background: #ffab9d;
+          }
+          &:hover svg {
+            transform: translateX(0);
+          }
+          &:active {
+            transform: scale(0.96);
           }
         }
       }
     }
 
     .right {
-      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 45%;
       height: 100%;
-
-      .home-images {
-        margin: 4%;
-        height: 100%;
-
-        img {
-          height: 100%;
+      .img-container {
+        width: 100%;
+        height: 400px;
+        cursor: pointer;
+        overflow: hidden;
+        &:hover .img-content-hover {
+          display: block;
         }
+      }
+
+      img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        transform: scale(1);
+        transition: all 0.3s ease-in-out;
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+
+      .img-content-hover {
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        white-space: nowrap;
+        display: none;
+        padding: 1rem;
+        background: $white;
+        font-weight: 400;
+        margin-top: 1.25rem;
+        margin-left: -2rem;
+      }
+
+      .title {
+        color: $black;
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+
+      .category {
+        font-size: 1rem;
+        color: $gray;
+      }
+
+      .img-content {
+        display: none;
       }
     }
 
