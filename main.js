@@ -1,7 +1,11 @@
 import "normalize.css";
 
+// Declatations
 const imgContent = document.querySelectorAll(".img-content-hover");
-
+const reserveButton = document.querySelector(".reserve-button");
+const aboutPopup = document.querySelector(".content-popup");
+const closeAboutPopup = document.querySelector(".close-about-popup");
+// Hover effect for images
 const showImgContent = (event) => {
   let x;
   let y;
@@ -14,3 +18,19 @@ const showImgContent = (event) => {
 };
 
 document.addEventListener("mousemove", showImgContent);
+
+// Popup navigation animation
+const handleReserveButton = (event) => {
+  event.preventDefault();
+
+  aboutPopup.classList.add("active");
+  console.log("test");
+};
+
+const handleClosingPopup = (event) => {
+  event.preventDefault();
+  aboutPopup.classList.remove("active");
+};
+
+reserveButton.addEventListener("click", handleReserveButton);
+closeAboutPopup.addEventListener("click", handleClosingPopup);
