@@ -20,6 +20,7 @@ body {
   justify-content: center;
 
   .home {
+    overflow: hidden;
     display: flex;
     flex-direction: row;
     width: 90%;
@@ -52,6 +53,7 @@ body {
           font-size: 1em;
           font-weight: 400;
           color: lightslategrey;
+          line-height: 140%;
         }
       }
 
@@ -71,8 +73,14 @@ body {
           margin-top: 40px;
           margin-right: 40px;
           font-weight: 400;
-          color: rgba(255, 171, 157);
+          color: rgba(255, 171, 157, 0.7);
           text-decoration: underline;
+          transition: all 0.4s ease;
+
+          &:hover {
+            color: rgba(255, 171, 157, 1);
+            transition: all 0.4s ease;
+          }
         }
 
         .reserve-button {
@@ -135,8 +143,9 @@ body {
       align-items: center;
       width: 45%;
       height: 100%;
+
       .img-container {
-        width: 100%;
+        //width: 100%;
         height: 400px;
         cursor: pointer;
         overflow: hidden;
@@ -146,6 +155,7 @@ body {
       }
 
       img {
+        margin: auto;
         width: 100%;
         max-width: 600px;
         height: 500px;
