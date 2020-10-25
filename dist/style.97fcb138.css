@@ -16,18 +16,29 @@ body {
   justify-content: center;
 }
 .container .home {
-  overflow: hidden;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   width: 80%;
   height: 100vh;
   align-items: center;
   justify-content: space-between;
 }
+@media screen and (max-width: 1400px) {
+  .container .home {
+    width: 90%;
+    justify-content: center;
+  }
+}
 .container .home .left {
-  width: 45%;
+  flex-basis: 45%;
   align-items: center;
   justify-content: center;
+}
+@media screen and (max-width: 1212px) {
+  .container .home .left {
+    flex-basis: 70%;
+  }
 }
 .container .home .left .titles {
   margin-top: 5%;
@@ -36,6 +47,11 @@ body {
 .container .home .left .titles h1 {
   font-size: 4em;
   margin-bottom: -5px;
+}
+@media all and (max-width: 768px) {
+  .container .home .left .titles h1 {
+    font-size: 2em;
+  }
 }
 .container .home .left .titles h4 {
   font-size: 1em;
@@ -51,6 +67,7 @@ body {
 .container .home .left .home-buttons {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   width: 100%;
   justify-content: space-between;
   align-items: center;
@@ -66,6 +83,7 @@ body {
   color: rgba(255, 171, 157, 0.7);
   text-decoration: underline;
   transition: all 0.4s ease;
+  text-align: right;
 }
 .container .home .left .home-buttons .about-button:hover {
   color: #ffab9d;
@@ -125,11 +143,12 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 45%;
+  flex-basis: 45%;
+  min-width: 600px;
   height: 100%;
 }
 .container .home .right .img-container {
-  height: 400px;
+  max-height: 400px;
   cursor: pointer;
   overflow: hidden;
 }
@@ -148,8 +167,14 @@ body {
 .container .home .right img:hover {
   transform: scale(1.05);
 }
+@media screen and (max-width: 1212px) {
+  .container .home .right {
+    flex-basis: 70%;
+    flex-direction: row;
+    height: auto;
+  }
+}
 .container .home .right .img-content-hover {
-  z-index: 1;
   position: absolute;
   top: 0;
   left: 0;
@@ -182,27 +207,163 @@ body {
 .container .home .home-intro p {
   margin: 20px;
 }
+.container .popups-container {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+.container .popups-container .film-popup {
+  z-index: 9;
+  display: none;
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(30px);
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  transition: 1s;
+}
+.container .popups-container .film-popup.active {
+  display: flex;
+  transition: 0.4s;
+}
+.container .popups-container .film-popup .film-popup-content {
+  position: relative;
+  width: 50%;
+  padding: 2%;
+  border-radius: 25px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(50px);
+  opacity: 1;
+  transition: transform 0.2s;
+}
+.container .popups-container .film-popup .film-popup-content.active {
+  transform: translateY(0px);
+  opacity: 1;
+  transition: transform 0.2s;
+}
+.container .popups-container .film-popup .film-popup-content .close-pupups {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  font-size: 1.1em;
+  font-weight: 400;
+  color: #ffab9d;
+  transition: all 0.4s ease;
+  text-align: right;
+}
+.container .popups-container .film-popup .film-popup-content .close-pupups:hover {
+  cursor: pointer;
+  color: #ffab9d;
+  transition: all 0.4s ease;
+}
+.container .popups-container .film-popup .film-popup-content .right {
+  flex-basis: 40%;
+}
+.container .popups-container .film-popup .film-popup-content .left {
+  flex-basis: 50%;
+}
 .container .content-popup {
   transform: translateY(120%);
-  opacity: 0.5;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.3s ease-in;
   position: absolute;
-  bottom: 0;
+  bottom: 0px;
+  left: 0px;
   width: 100vw;
   height: 95vh;
   background-color: white;
   border-top: 1px solid lightgray;
   border-top-right-radius: 40px;
   border-top-left-radius: 40px;
-  box-shadow: 0px -5px 25px lightgray;
+  box-shadow: 0px -5px 25px grey;
 }
 .container .content-popup.active {
   transform: translateY(0);
-  opacity: 1;
-  transition: all 0.4s ease-in-out;
+  transition: transform 0.3s ease-in;
+}
+.container .content-popup .close-about-popup {
+  outline: none;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  border: none;
+  border-radius: 15px;
+  padding: 10px 30px;
+  background-color: #ffab9d;
+  color: white;
+  transition: 0.4s;
+}
+.container .content-popup .close-about-popup .arrow-icon {
+  color: white;
+}
+.container .content-popup .close-about-popup:hover {
+  cursor: pointer;
+  padding: 12px 32px;
+  transform: translateY(-2px);
+  transition: 0.4s;
 }
 .container .content-popup .about {
   width: 80%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
+.container .content-popup .about .left {
+  flex-basis: 45%;
+}
+.container .content-popup .about .left .filmslist {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.container .content-popup .about .left .filmslist .film {
+  width: 120px;
+  margin: 10px;
+}
+.container .content-popup .about .left .filmslist .film:hover {
+  cursor: pointer;
+}
+.container .content-popup .about .left .filmslist .film .film-image {
+  width: 120px;
+}
+.container .content-popup .about .right {
+  flex-basis: 45%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.container .content-popup .about .right .about-festival {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+/*
+@media all and (max-width: 991px) {
+}
+@media all and (max-width: 768px) {
+}
+@media all and (max-width: 575px) {
+}
+*/
 
 /*# sourceMappingURL=/style.97fcb138.css.map */

@@ -20,27 +20,43 @@ body {
   justify-content: center;
 
   .home {
-    overflow: hidden;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     width: 80%;
     height: 100vh;
     align-items: center;
     justify-content: space-between;
 
+    @media screen and (max-width: 1400px) {
+      width: 90%;
+      justify-content: center;
+    }
+
     .left {
-      width: 45%;
+      flex-basis: 45%;
       align-items: center;
       justify-content: center;
+
+      @media screen and (max-width: 1212px) {
+        flex-basis: 70%;
+      }
 
       .titles {
         margin-top: 5%;
         text-align: left;
 
         h1 {
-          //font-family: "Playfair Display", serif;
           font-size: 4em;
           margin-bottom: -5px;
+
+          @media all and (max-width: 991px) {
+          }
+          @media all and (max-width: 768px) {
+            font-size: 2em;
+          }
+          @media all and (max-width: 575px) {
+          }
         }
 
         h4 {
@@ -60,6 +76,7 @@ body {
       .home-buttons {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         width: 100%;
         justify-content: space-between;
         align-items: center;
@@ -76,6 +93,7 @@ body {
           color: rgba(255, 171, 157, 0.7);
           text-decoration: underline;
           transition: all 0.4s ease;
+          text-align: right;
 
           &:hover {
             color: rgba(255, 171, 157, 1);
@@ -141,12 +159,12 @@ body {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      width: 45%;
+      flex-basis: 45%;
+      min-width: 600px;
       height: 100%;
 
       .img-container {
-        //width: 100%;
-        height: 400px;
+        max-height: 400px;
         cursor: pointer;
         overflow: hidden;
         &:hover .img-content-hover {
@@ -167,8 +185,13 @@ body {
         }
       }
 
+      @media screen and (max-width: 1212px) {
+        flex-basis: 70%;
+        flex-direction: row;
+        height: auto;
+      }
+
       .img-content-hover {
-        z-index: 1;
         position: absolute;
         top: 0;
         left: 0;
@@ -210,28 +233,186 @@ body {
   }
 
   // About
+  .popups-container {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+
+    .film-popup {
+      z-index: 9;
+      display: none;
+      opacity: 0;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(30px);
+
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      transition: 1s;
+
+      &.active {
+        display: flex;
+        transition: 0.4s;
+      }
+
+      .film-popup-content {
+        position: relative;
+        width: 50%;
+        padding: 2%;
+        border-radius: 25px;
+        background-color: white;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        transform: translateY(50px);
+        opacity: 1;
+        transition: transform 0.2s;
+
+        &.active {
+          transform: translateY(0px);
+          opacity: 1;
+          transition: transform 0.2s;
+        }
+
+        .close-pupups {
+          position: absolute;
+          top: 30px;
+          right: 50px;
+          font-size: 1.1em;
+          font-weight: 400;
+          color: rgba(255, 171, 157);
+          transition: all 0.4s ease;
+          text-align: right;
+
+          &:hover {
+            cursor: pointer;
+            color: rgba(255, 171, 157, 1);
+            transition: all 0.4s ease;
+          }
+        }
+
+        .right {
+          flex-basis: 40%;
+        }
+        .left {
+          flex-basis: 50%;
+        }
+      }
+    }
+  }
+
   .content-popup {
     transform: translateY(120%);
-    opacity: 0.5;
-    transition: all 0.4s ease-in-out;
+    transition: all 0.3s ease-in;
     position: absolute;
-    bottom: 0;
+    bottom: 0px;
+    left: 0px;
     width: 100vw;
     height: 95vh;
     background-color: white;
     border-top: 1px solid lightgray;
     border-top-right-radius: 40px;
     border-top-left-radius: 40px;
-    box-shadow: 0px -5px 25px lightgray;
+    box-shadow: 0px -5px 25px grey;
 
     &.active {
       transform: translateY(0);
-      opacity: 1;
-      transition: all 0.4s ease-in-out;
+      transition: transform 0.3s ease-in;
+    }
+
+    .close-about-popup {
+      outline: none;
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      border: none;
+      border-radius: 15px;
+      padding: 10px 30px;
+
+      background-color: rgba(255, 171, 157);
+      color: white;
+      transition: 0.4s;
+
+      .arrow-icon {
+        color: white;
+      }
+
+      &:hover {
+        cursor: pointer;
+        padding: 12px 32px;
+        transform: translateY(-2px);
+        transition: 0.4s;
+      }
     }
 
     .about {
       width: 80%;
+      height: 100%;
+      margin: auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      .left {
+        flex-basis: 45%;
+
+        .filmslist {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+
+          .film {
+            width: 120px;
+            margin: 10px;
+
+            &:hover {
+              cursor: pointer;
+            }
+
+            .film-image {
+              width: 120px;
+            }
+          }
+        }
+      }
+
+      .right {
+        flex-basis: 45%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        .about-festival {
+          font-size: 3em;
+          margin-bottom: 20px;
+        }
+      }
     }
   }
 }
+
+/*
+@media all and (max-width: 991px) {
+}
+@media all and (max-width: 768px) {
+}
+@media all and (max-width: 575px) {
+}
+*/
