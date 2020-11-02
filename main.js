@@ -12,6 +12,7 @@ let films;
 let filmsPopups;
 let closePupups;
 let filmsPopupsContent;
+let filmsReserveButtons;
 
 // Films request
 const baseURL = "https://sampleapis.com/movies/api/classic";
@@ -38,9 +39,21 @@ const filmPopupsTemplate = (film) => `
                       numquam distinctio a, suscipit quam eius modi voluptate cumque
                       iste cupiditate ex dolor.
                       </p>
+                      <button class="film-reserve-button">Reserver</button>
                     </div>
                   </div>
                 </div>
+`;
+
+const filmReservationTemplate = (film) => `
+  <div class="film-content-reserve">
+    <h3>Je reserve ma place !</h3>
+    <select name="" id="">
+      <option value="">Date 1</option>
+      <option value="">Date 2</option>
+      <option value="">Date 3</option>
+    </select>
+  </div>
 `;
 
 fetch(baseURL)
@@ -61,6 +74,7 @@ const handleFilms = (data) => {
   filmsPopups = document.querySelectorAll(".film-popup");
   filmsPopupsContent = document.querySelectorAll(".film-popup-content");
   closePupups = document.querySelectorAll(".close-pupups");
+  filmsReserveButtons = document.querySelectorAll(".film-reserve-button");
 
   films.forEach((film, index) => {
     film.addEventListener("click", () => {
@@ -73,16 +87,21 @@ const handleFilms = (data) => {
     });
   });
 
-  filmsPopups.forEach((sideOfPopup, index) => {
-    sideOfPopup.addEventListener("click", () => {
-      filmsPopupsContent[index].classList.remove("active");
+  //filmsReserveButtons.forEach("click", () => {});
 
-      setTimeout(() => {
-        filmsPopups[index].style.opacity = 0;
-      }, 20);
-      setTimeout(() => {
-        filmsPopups[index].classList.remove("active");
-      }, 400);
+  filmsPopups.forEach((sideOfPopup, index) => {
+    sideOfPopup.addEventListener("click", (event) => {
+      console.log(event.target);
+      if (event.target.classList.contains("film-popup")) {
+        filmsPopupsContent[index].classList.remove("active");
+
+        setTimeout(() => {
+          filmsPopups[index].style.opacity = 0;
+        }, 20);
+        setTimeout(() => {
+          filmsPopups[index].classList.remove("active");
+        }, 400);
+      }
     });
   });
 

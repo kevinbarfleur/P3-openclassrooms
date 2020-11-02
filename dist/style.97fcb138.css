@@ -24,21 +24,12 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-@media screen and (max-width: 1400px) {
-  .container .home {
-    width: 90%;
-    justify-content: center;
-  }
-}
 .container .home .left {
+  display: flex;
+  flex-direction: column;
   flex-basis: 45%;
   align-items: center;
   justify-content: center;
-}
-@media screen and (max-width: 1212px) {
-  .container .home .left {
-    flex-basis: 70%;
-  }
 }
 .container .home .left .titles {
   margin-top: 5%;
@@ -47,11 +38,6 @@ body {
 .container .home .left .titles h1 {
   font-size: 4em;
   margin-bottom: -5px;
-}
-@media all and (max-width: 768px) {
-  .container .home .left .titles h1 {
-    font-size: 2em;
-  }
 }
 .container .home .left .titles h4 {
   font-size: 1em;
@@ -72,12 +58,8 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-.container .home .left .home-buttons a {
-  text-decoration: none;
-  color: inherit;
-}
 .container .home .left .home-buttons .about-button {
-  margin-top: 40px;
+  margin-top: 50px;
   margin-right: 40px;
   font-weight: 400;
   color: rgba(255, 171, 157, 0.7);
@@ -86,6 +68,7 @@ body {
   text-align: right;
 }
 .container .home .left .home-buttons .about-button:hover {
+  cursor: pointer;
   color: #ffab9d;
   transition: all 0.4s ease;
 }
@@ -109,7 +92,7 @@ body {
 }
 .container .home .left .home-buttons .reserve-button span {
   position: relative;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 18px;
   font-weight: 900;
   letter-spacing: 0.25em;
@@ -166,13 +149,6 @@ body {
 }
 .container .home .right img:hover {
   transform: scale(1.05);
-}
-@media screen and (max-width: 1212px) {
-  .container .home .right {
-    flex-basis: 70%;
-    flex-direction: row;
-    height: auto;
-  }
 }
 .container .home .right .img-content-hover {
   position: absolute;

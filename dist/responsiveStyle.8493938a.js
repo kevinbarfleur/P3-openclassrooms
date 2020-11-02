@@ -184,128 +184,12 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"node_modules/normalize.css/normalize.css":[function(require,module,exports) {
+},{"./bundle-url":"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"responsiveStyle.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
 
-        var reloadCSS = require('_css_loader');
-        module.hot.dispose(reloadCSS);
-        module.hot.accept(reloadCSS);
-      
-},{"_css_loader":"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"main.js":[function(require,module,exports) {
-"use strict";
-
-require("normalize.css");
-
-// Declatations
-var imgContent = document.querySelectorAll(".img-content-hover");
-var reserveButton = document.querySelector(".reserve-button");
-var aboutPopup = document.querySelector(".content-popup");
-var closeAboutPopup = document.querySelector(".close-about-popup");
-var filmsList = document.querySelector(".filmslist");
-var popupsContainer = document.querySelector(".popups-container");
-var films;
-var filmsPopups;
-var closePupups;
-var filmsPopupsContent;
-var filmsReserveButtons; // Films request
-
-var baseURL = "https://sampleapis.com/movies/api/classic";
-
-var filmImageTemplate = function filmImageTemplate(film) {
-  return "\n              <div class=\"film\">\n                <img class=\"film-image\" src=\"".concat(film.posterURL, "\" alt=\"").concat(film.title, " poster\" />\n              </div>\n");
-};
-
-var filmPopupsTemplate = function filmPopupsTemplate(film) {
-  return "\n                <div class=\"film-popup\">\n                  <div class=\"film-popup-content\">\n                    <div class=\"close-pupups\">\n                    &#8592; Fermer\n                    </div>\n                    <div class=\"left\">\n                      <img class=\"popup-film-image\" src=\"".concat(film.posterURL, "\" alt=\"").concat(film.posterURL, " poster\" />\n                    </div>\n                    <div class=\"right\">\n                      <h3 class=\"film-title\">").concat(film.title, "</h3>\n                      <p class=\"description\">\n                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Est,\n                      reiciendis nulla! Hic nemo repudiandae ullam architecto ratione\n                      numquam distinctio a, suscipit quam eius modi voluptate cumque\n                      iste cupiditate ex dolor.\n                      </p>\n                      <button class=\"film-reserve-button\">Reserver</button>\n                    </div>\n                  </div>\n                </div>\n");
-};
-
-var filmReservationTemplate = function filmReservationTemplate(film) {
-  return "\n  <div class=\"film-content-reserve\">\n    <h3>Je reserve ma place !</h3>\n    <select name=\"\" id=\"\">\n      <option value=\"\">Date 1</option>\n      <option value=\"\">Date 2</option>\n      <option value=\"\">Date 3</option>\n    </select>\n  </div>\n";
-};
-
-fetch(baseURL).then(function (resp) {
-  return resp.json();
-}).then(function (data) {
-  handleFilms(data);
-});
-
-var handleFilms = function handleFilms(data) {
-  // Get only 12
-  for (var i = 9; i < 21; i++) {
-    // Start at 9 because of some missing API images between 1 and 9
-    filmsList.innerHTML += filmImageTemplate(data[i]);
-    popupsContainer.innerHTML += filmPopupsTemplate(data[i]);
-  }
-
-  films = document.querySelectorAll(".film");
-  filmsPopups = document.querySelectorAll(".film-popup");
-  filmsPopupsContent = document.querySelectorAll(".film-popup-content");
-  closePupups = document.querySelectorAll(".close-pupups");
-  filmsReserveButtons = document.querySelectorAll(".film-reserve-button");
-  films.forEach(function (film, index) {
-    film.addEventListener("click", function () {
-      filmsPopups[index].classList.add("active");
-      setTimeout(function () {
-        filmsPopups[index].style.opacity = 1;
-        filmsPopupsContent[index].classList.add("active");
-      }, 100);
-    });
-  }); //filmsReserveButtons.forEach("click", () => {});
-
-  filmsPopups.forEach(function (sideOfPopup, index) {
-    sideOfPopup.addEventListener("click", function (event) {
-      console.log(event.target);
-
-      if (event.target.classList.contains("film-popup")) {
-        filmsPopupsContent[index].classList.remove("active");
-        setTimeout(function () {
-          filmsPopups[index].style.opacity = 0;
-        }, 20);
-        setTimeout(function () {
-          filmsPopups[index].classList.remove("active");
-        }, 400);
-      }
-    });
-  });
-  closePupups.forEach(function (closeButton, index) {
-    closeButton.addEventListener("click", function () {
-      filmsPopupsContent[index].classList.remove("active");
-      setTimeout(function () {
-        filmsPopups[index].style.opacity = 0;
-      }, 20);
-      setTimeout(function () {
-        filmsPopups[index].classList.remove("active");
-      }, 400);
-    });
-  });
-}; // Hover effect for images
-
-
-var showImgContent = function showImgContent(event) {
-  var x;
-  var y;
-
-  for (var i = 0; i < imgContent.length; i++) {
-    x = event.pageX;
-    y = event.pageY;
-    imgContent[i].style.transform = "translate3d(".concat(x, "px, ").concat(y, "px, 0)");
-  }
-};
-
-document.addEventListener("mousemove", showImgContent); // Popup navigation animation
-
-var handleReserveButton = function handleReserveButton(event) {
-  event.preventDefault();
-  aboutPopup.classList.add("active");
-};
-
-var handleClosingPopup = function handleClosingPopup(event) {
-  event.preventDefault();
-  aboutPopup.classList.remove("active");
-};
-
-reserveButton.addEventListener("click", handleReserveButton);
-closeAboutPopup.addEventListener("click", handleClosingPopup);
-},{"normalize.css":"node_modules/normalize.css/normalize.css"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -509,5 +393,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","main.js"], null)
-//# sourceMappingURL=/main.1f19ae8e.js.map
+},{}]},{},["../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
+//# sourceMappingURL=/responsiveStyle.8493938a.js.map

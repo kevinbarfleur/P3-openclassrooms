@@ -1,0 +1,164 @@
+@media all and (max-width: 1441px) {
+  .container {
+    .home {
+      align-items: center;
+      justify-content: center;
+
+      .right {
+        display: none;
+      }
+    }
+
+    .content-popup {
+      .about {
+        margin-top: 5%;
+        width: 95%;
+        .left {
+          .filmslist {
+            margin-top: 5%;
+            .film {
+              width: 80px;
+              margin: 8px;
+
+              .film-image {
+                width: 80px;
+              }
+            }
+          }
+        }
+        .right {
+          .about-festival {
+            font-size: 1.5em;
+          }
+          p {
+            font-size: 0.9em;
+          }
+        }
+      }
+    }
+
+    .popups-container {
+      .film-popup {
+        .film-popup-content {
+          width: 70%;
+
+          img {
+            height: 450px;
+          }
+
+          p {
+            font-size: 1em;
+          }
+        }
+      }
+    }
+  }
+}
+@media all and (max-width: 991px) {
+  .container {
+    .home {
+      flex-direction: column;
+      flex-wrap: nowrap;
+
+      .left {
+        .titles {
+          h1 {
+            font-size: 2.5em;
+          }
+        }
+      }
+
+      .right {
+        display: none;
+        flex-basis: 90%;
+        flex-direction: row;
+      }
+    }
+  }
+}
+@media all and (max-width: 768px) {
+  .container {
+    .home {
+      .left {
+        flex-basis: 100%;
+      }
+
+      .right {
+        display: none;
+      }
+    }
+
+    .content-popup {
+      .about {
+        margin-top: 5%;
+        width: 95%;
+        .left {
+          .filmslist {
+            margin-top: 5%;
+            .film {
+              width: 40px;
+              margin: 8px;
+
+              .film-image {
+                width: 40px;
+              }
+            }
+          }
+        }
+        .right {
+          .about-festival {
+            font-size: 1.5em;
+          }
+          p {
+            font-size: 0.9em;
+          }
+        }
+      }
+    }
+
+    .popups-container {
+      .film-popup {
+        .film-popup-content {
+          width: 90%;
+          height: 60%;
+
+          img {
+            height: 250px;
+          }
+
+          p {
+            font-size: 0.8em;
+          }
+        }
+      }
+    }
+  }
+}
+@media all and (max-width: 575px) {
+  .content-popup {
+    .about {
+      margin-top: 5%;
+      .left {
+        .filmslist {
+          margin-top: 5%;
+          .film {
+            width: 40px;
+            margin: 8px;
+
+            .film-image {
+              width: 40px;
+            }
+          }
+        }
+      }
+      .right {
+        .about-festival {
+          font-size: 1.5em;
+        }
+        p {
+          font-size: 0.8em;
+        }
+      }
+    }
+  }
+}

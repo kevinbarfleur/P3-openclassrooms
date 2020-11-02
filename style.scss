@@ -28,19 +28,12 @@ body {
     align-items: center;
     justify-content: space-between;
 
-    @media screen and (max-width: 1400px) {
-      width: 90%;
-      justify-content: center;
-    }
-
     .left {
+      display: flex;
+      flex-direction: column;
       flex-basis: 45%;
       align-items: center;
       justify-content: center;
-
-      @media screen and (max-width: 1212px) {
-        flex-basis: 70%;
-      }
 
       .titles {
         margin-top: 5%;
@@ -49,14 +42,6 @@ body {
         h1 {
           font-size: 4em;
           margin-bottom: -5px;
-
-          @media all and (max-width: 991px) {
-          }
-          @media all and (max-width: 768px) {
-            font-size: 2em;
-          }
-          @media all and (max-width: 575px) {
-          }
         }
 
         h4 {
@@ -81,13 +66,8 @@ body {
         justify-content: space-between;
         align-items: center;
 
-        a {
-          text-decoration: none;
-          color: inherit;
-        }
-
         .about-button {
-          margin-top: 40px;
+          margin-top: 50px;
           margin-right: 40px;
           font-weight: 400;
           color: rgba(255, 171, 157, 0.7);
@@ -96,6 +76,7 @@ body {
           text-align: right;
 
           &:hover {
+            cursor: pointer;
             color: rgba(255, 171, 157, 1);
             transition: all 0.4s ease;
           }
@@ -121,7 +102,7 @@ body {
           }
           & span {
             position: relative;
-            font-size: 16px;
+            font-size: 15px;
             line-height: 18px;
             font-weight: 900;
             letter-spacing: 0.25em;
@@ -183,12 +164,6 @@ body {
         &:hover {
           transform: scale(1.05);
         }
-      }
-
-      @media screen and (max-width: 1212px) {
-        flex-basis: 70%;
-        flex-direction: row;
-        height: auto;
       }
 
       .img-content-hover {
