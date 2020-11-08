@@ -129,8 +129,35 @@
           p {
             font-size: 0.8em;
           }
+
+          .film-content-reserve {
+            font-size: 0.9em;
+
+            input,
+            select {
+              margin-top: 0.2em;
+              margin-bottom: 0.6em;
+            }
+
+            .confirm-reserve {
+              margin-top: 1em;
+            }
+          }
         }
       }
+    }
+  }
+
+  .notificationPopup {
+    width: 70%;
+  }
+
+  .contact {
+    .left {
+      margin-top: 20%;
+    }
+    .about-side {
+      padding: 4% 10% 4% 10%;
     }
   }
 }
