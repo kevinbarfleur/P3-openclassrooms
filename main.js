@@ -11,6 +11,8 @@ const popupsContainer = document.querySelector(".popups-container");
 const aboutButton = document.querySelector(".about-button");
 const contactPopup = document.querySelector(".contact");
 const closeContactPopup = document.querySelector(".close-contact-popup");
+const toggleNewsletter = document.querySelector(".toggle-newsletter");
+const newsletterPopup = document.querySelector(".newsletter-container");
 
 let films;
 let filmsPopups;
@@ -33,7 +35,7 @@ const filmPopupsTemplate = (film) => `
                 <div class="film-popup">
                   <div class="film-popup-content">
                     <div class="close-pupups">
-                    &#8592; Retour
+                    &#8592; Fermer
                     </div>
                     <div class="film-content-info">
                     <div class="left">
@@ -58,6 +60,7 @@ const filmPopupsTemplate = (film) => `
                         <input required type="email" id="email" placeholder='email@gmail.com'></input></br>
                         <label for="date-select">Choisisez une date:</label></br>
                         <select required value='6 Aout 2021' name="dates" id="date-select">
+                          <option value="5 Aout 2021">5 Aout 2021</option>
                           <option value="6 Aout 2021">6 Aout 2021</option>
                           <option value="7 Aout 2021">7 Aout 2021</option>
                           <option value="8 Aout 2021">8 Aout 2021</option>
@@ -105,6 +108,7 @@ const handleFilms = (data) => {
 
   films.forEach((film, index) => {
     film.addEventListener("click", () => {
+      popupsContainer.style.display = "flex";
       filmsPopups[index].classList.add("active");
 
       setTimeout(() => {
@@ -141,6 +145,7 @@ const handleFilms = (data) => {
         setTimeout(() => {
           filmsPopups[index].classList.remove("active");
           filmReserveContent[index].style.display = "none";
+          popupsContainer.style.display = "none";
         }, 400);
       }
     });
@@ -156,6 +161,7 @@ const handleFilms = (data) => {
       }, 20);
       setTimeout(() => {
         filmReserveContent[index].style.display = "none";
+        popupsContainer.style.display = "none";
       }, 400);
     });
   });
@@ -190,6 +196,15 @@ const displayConfirmNotification = (data) => {
     }, 5000);
   }, 200);
 };
+
+// Newsletter popup
+toggleNewsletter.addEventListener("click", () => {
+  if (newsletterPopup.style.display === "none") {
+    newsletterPopup.style.display = "flex";
+  } else {
+    newsletterPopup.style.display = "none";
+  }
+});
 
 // About popup
 aboutButton.addEventListener("click", () => {
