@@ -1,4 +1,4 @@
-import "normalize.css";
+// import "normalize.css";
 
 // Declatations
 const container = document.querySelector(".container");
@@ -11,8 +11,6 @@ const popupsContainer = document.querySelector(".popups-container");
 const aboutButton = document.querySelector(".about-button");
 const contactPopup = document.querySelector(".contact");
 const closeContactPopup = document.querySelector(".close-contact-popup");
-const toggleNewsletter = document.querySelector(".toggle-newsletter");
-const newsletterPopup = document.querySelector(".newsletter-container");
 
 let films;
 let filmsPopups;
@@ -196,15 +194,6 @@ const displayConfirmNotification = (data) => {
     }, 5000);
   }, 200);
 };
-
-// Newsletter popup
-toggleNewsletter.addEventListener("click", () => {
-  if (newsletterPopup.style.display === "none") {
-    newsletterPopup.style.display = "flex";
-  } else {
-    newsletterPopup.style.display = "none";
-  }
-});
 
 // About popup
 aboutButton.addEventListener("click", () => {
