@@ -1,4 +1,4 @@
-// import "normalize.css";
+import "normalize.css";
 
 // Declatations
 const container = document.querySelector(".container");
